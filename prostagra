@@ -1,0 +1,31 @@
+# Prosta gra zgadywanka
+
+import random
+
+def gra_zgadywanka():
+    numer_do_zgadniecia = random.randint(1, 10)
+    proba = 0
+
+    print("Witaj w grze zgadywance! Spróbuj zgadnąć liczbę od 1 do 10.")
+
+    while proba < 3:
+        try:
+            zgadnij = int(input("Podaj liczbę: "))
+            proba += 1
+
+            if zgadnij == numer_do_zgadniecia:
+                print(f"Gratulacje! Zgadłeś liczbę po {proba} próbach.")
+                break
+            elif zgadnij < numer_do_zgadniecia:
+                print("Twoja liczba jest za mała.")
+            else:
+                print("Twoja liczba jest za duża.")
+
+        except ValueError:
+            print("To nie jest liczba. Spróbuj ponownie.")
+
+    if zgadnij != numer_do_zgadniecia:
+        print(f"Niestety, nie udało Ci się zgadnąć. Liczba to było {numer_do_zgadniecia}.")
+
+if __name__ == "__main__":
+    gra_zgadywanka()
